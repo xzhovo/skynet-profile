@@ -4,7 +4,7 @@ Skynet 默认开启 profile ，但只会统计单个服务所有消息回调的 
 
 **API**  
 这个 API 会返回一个 function 供 `skynet.dispatch` 或 `skynet.register_protocol` ，通常我们只关心 `"lua"` type  
-`profileLib.init(CMD, name, swith, realFun, extFun)` `CMD` 服务回调函数 table， `name` 服务名，`swith` 该服务的 profile 开关， nil 时默认为 skynet config 中的 profile 配置，`realFun` 自定义整个函数，`extFun` 自定义追加函数  
+`profileLib.init(CMD, name, swith, realFun, extFun)` `CMD` 服务消息处理函数 table， `name` 服务名，`swith` 该服务的 profile 开关， nil 时默认为 skynet config 中的 profile 配置，`realFun` 自定义整个函数，`extFun` 自定义追加函数  
 **注意**  
 返回的默认注册函数中调用方式为 `CMD[cmd](CMD, ...)` ，所以 `CMD` 函数样例为 `CMD:xxxFun(...)` 或 `CMD.xxxFun(self, ...)`  
 
