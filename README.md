@@ -43,3 +43,20 @@ skynet.dispatch("lua", profileLib.init(CMD, "agent", nil, nil, function()
 	collectgarbage("step")
 end))
 ```
+
+然后就可以对愉快开启的服务 console_debug info 了，默认以总耗时排序，带参则以平均耗时排序  
+`average` 平均耗时(秒) `callTimes` 调用次数 `costTime` 总耗时(秒) `fun` 函数名  
+```
+info 0000001f
+1	average:0.0000541680	callTimes:4	costTime:0.0002166720	fun:send
+2	average:0.0000995960	callTimes:1	costTime:0.0000995960	fun:start
+3	average:0.0000831420	callTimes:1	costTime:0.0000831420	fun:join
+4	average:0.0000109660	callTimes:1	costTime:0.0000109660	fun:check
+<CMD OK>
+info 0000001f true
+1	average:0.0000995960	callTimes:1	costTime:0.0000995960	fun:start
+2	average:0.0000831420	callTimes:1	costTime:0.0000831420	fun:join
+3	average:0.0000559698	callTimes:6	costTime:0.0003358190	fun:send
+4	average:0.0000109660	callTimes:1	costTime:0.0000109660	fun:check
+<CMD OK>
+```
