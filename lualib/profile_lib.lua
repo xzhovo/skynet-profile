@@ -55,8 +55,6 @@ function profileLib.init(CMD, name, swith, realFun, extFun)
 
             realFun(session, _, cmd, ...)
 
-            extFun()
-
             local time = profile.stop()
             local p = profileTime[cmd]
             if p == nil then
